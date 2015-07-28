@@ -29,6 +29,7 @@ class getByIngredient(Resource):
 
     	print (json.dumps(recipeList))
         return (json.dumps(recipeList))
+        
 
 
 api.add_resource(getByIngredient, '/ingredient/<string:ingredient>')
