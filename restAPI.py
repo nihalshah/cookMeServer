@@ -30,10 +30,18 @@ class getByIngredient(Resource):
     	print (json.dumps(recipeList))
         return (json.dumps(recipeList))
         
-
+class getDefaultRecipes(Resource):
+    def get(self):
+        default = ['Bagel', 'Burger', 'Pasta', 'Pizza']
+        ret = []
+        for recipeName in default:
+            ret.append(firebase.get('/recipes/'+recipeName+'/'+recipeName+'',None))
+        
+        return ret
 
 api.add_resource(getByIngredient, '/ingredient/<string:ingredient>')
 api.add_resource(getByRecipeName, '/recipe/<string:recipeName>')
+api.add_resource(getDefaultRecipes, '/')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
