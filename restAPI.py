@@ -34,4 +34,4 @@ api.add_resource(getByIngredient, '/ingredient/<string:ingredient>')
 api.add_resource(getByRecipeName, '/recipe/<string:recipeName>')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0')

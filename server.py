@@ -15,10 +15,10 @@ def tempRecipe():
 @app.route("/GET/<recipeName>")
 def getRecipe(recipeName):
 	recipe = firebase.get('/recipes/'+recipeName+'/'+recipeName+'',None)
-    print "instructions are : " + recipe["instructions"]
-    ingredients = recipe["ingredients"][0]
-    return render_template('layout.html',recipe=recipe, ingredients = ingredients)
+	print "instructions are : " + recipe["instructions"]
+        ingredients = recipe["ingredients"][0]
+        return render_template('layout.html',recipe=recipe, ingredients = ingredients)
 
 
 if __name__ == '__main__':
-	app.run(port=4000)
+	app.run(port=4000, host="0.0.0.0")
