@@ -16,7 +16,7 @@ class getByRecipeName(Resource):
         return recipe
 
 class getByIngredient(Resource):
-    def get(self, ingredient):
+    def get(self, ingredientInput):
     	recipeTree = firebase.get('/recipes',None)
     	recipeList = []
     	# ingredients = recipe["ingredients"][0]
@@ -26,7 +26,7 @@ class getByIngredient(Resource):
     		 	recipe = recipeTree[shallowRoot][deepRoot]
                 for ingredient in recipe["ingredients"]:
     		 	    ingredientName = ingredient["ingredient name"]
-                    if ingredientName == ingredient:
+                    if ingredientName == ingredientInput:
     		 		   recipeList.append(recipe)
 
     	return recipeList
