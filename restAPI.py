@@ -24,7 +24,8 @@ class getByIngredient(Resource):
     		#print type(recipeTree[shallowRoot])
     		for deepRoot in recipeTree[shallowRoot]:
     		 	recipe = recipeTree[shallowRoot][deepRoot]
-    		 	ingredientName = recipe["ingredients"][0]["ingredient name"]
+                for ingredient in recipe["ingredients"]
+    		 	ingredientName = ingredient["ingredient name"]
 
     		 	if ingredientName == ingredient:
     		 		recipeList.append(recipe)
