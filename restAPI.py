@@ -33,7 +33,8 @@ class getByIngredient(Resource):
 class getDefaultRecipes(Resource):
     def get(self):
         default = ['Donut', 'Burger', 'Pasta','Donut','Waffles','Tomato juice']
-        ret = []
+       
+       	ret = []
         for recipeName in default:
             ret.append(firebase.get('/recipes/'+recipeName+'/'+recipeName+'',None))
         
