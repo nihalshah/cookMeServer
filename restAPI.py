@@ -29,8 +29,7 @@ class getByIngredient(Resource):
     		 	if ingredientName == ingredient:
     		 		recipeList.append(recipe)
 
-    	print (json.dumps(recipeList))
-        return (json.dumps(recipeList))
+    	return recipeList
         
 class getDefaultRecipes(Resource):
     def get(self):
