@@ -36,7 +36,7 @@ class getDefaultRecipes(Resource):
     def get(self):
         dt = datetime.now()
         print dt.microsecond
-        default = ['Donut', 'Burger', 'Pasta','Donut','Waffles','Tomato juice']
+        default = ['Donut']#, 'Burger', 'Pasta','Donut','Waffles','Tomato juice']
         
        	ret = []
         for recipeName in default:
