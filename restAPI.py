@@ -17,17 +17,15 @@ class getByRecipeName(Resource):
 
 class getByIngredient(Resource):
     def get(self, ingredientInput):
-    	recipeTree = firebase.get('/recipes',None)
-    	recipeList = []
-    	# ingredients = recipe["ingredients"][0]
-    	for shallowRoot in recipeTree:
-    		#print type(recipeTree[shallowRoot])
-    		for deepRoot in recipeTree[shallowRoot]:
-    		 	recipe = recipeTree[shallowRoot][deepRoot]
+        recipeTree = firebase.get('/recipes',None)
+        recipeList = []
+        for shallowRoot in recipeTree:
+            for deepRoot in recipeTree[shallowRoot]:
+                recipe = recipeTree[shallowRoot][deepRoot]
                 for ingredient in recipe["ingredients"]:
-    			ingredientName = ingredient["ingredient name"]
-                    	if ingredientName == ingredientInput:
-                        	recipeList.append(recipe)
+                    ingredientName = ingredient["ingredient name"]
+                    if ingredientName == ingredientInput:
+                        recipeList.append(recipe)
     		 		   
 
     	return recipeList
@@ -45,7 +43,7 @@ class getDefaultRecipes(Resource):
         print len(ret)
         return ret
 
-api.add_resource(getByIngredient, '/ingredient/<string:ingredient>')
+api.add_resource(getByIngredient, '/ingredient/<string:ingredientInput>')
 api.add_resource(getByRecipeName, '/recipe/<string:recipeName>')
 api.add_resource(getDefaultRecipes, '/')
 
