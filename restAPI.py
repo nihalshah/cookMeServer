@@ -27,7 +27,8 @@ class getByIngredient(Resource):
                 for ingredient in recipe["ingredients"]:
     		 	    ingredientName = ingredient["ingredient name"]
                     if ingredientName == ingredientInput:
-    		 		   recipeList.append(recipe)
+                        recipeList.append(recipe)
+    		 		   
 
     	return recipeList
         
