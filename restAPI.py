@@ -36,12 +36,12 @@ class getDefaultRecipes(Resource):
     def get(self):
         # dt = datetime.now()
         # print dt.microsecond
-        default = ['Donut', 'Burger', 'Pasta','Coffee']
+        default = ['Donut', 'Burger', 'Pasta','Tomato Juice']
         
        	ret = []
         for recipeName in default:
             ret.append(firebase.get('/recipes/'+recipeName+'/'+recipeName+'',None))
-        print ret
+       # print ret
         return ret
 
 api.add_resource(getByIngredient, '/ingredient/<string:ingredient>')
