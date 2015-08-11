@@ -27,7 +27,7 @@ class getByIngredient(Resource):
                     if ingredientName == ingredientInput:
                         recipeList.append(recipe)
     		 		   
-
+        print "Returned List"
     	return recipeList
         
 class getDefaultRecipes(Resource):
