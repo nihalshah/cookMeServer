@@ -44,7 +44,6 @@ class getDefaultRecipes(Resource):
 
         # dt = datetime.now()
         # print dt.microsecond
-        ret.append()
         return ret
 
 api.add_resource(getByIngredient, '/ingredient/<string:ingredient>')
