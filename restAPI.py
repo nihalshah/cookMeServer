@@ -2,6 +2,8 @@ from flask import Flask
 from flask_restful import Resource, Api
 from firebase import firebase
 import json
+from datetime import datetime
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -32,11 +34,16 @@ class getByIngredient(Resource):
         
 class getDefaultRecipes(Resource):
     def get(self):
+        dt = datetime.now()
+        print dt.microsecond
         default = ['Donut', 'Burger', 'Pasta','Donut','Waffles','Tomato juice']
-       
+        
        	ret = []
         for recipeName in default:
             ret.append(firebase.get('/recipes/'+recipeName+'/'+recipeName+'',None))
+
+        dt = datetime.now()
+        print dt.microsecond
         
         return ret
 
